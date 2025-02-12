@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECLIPSE SITE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #000000, #073763);
+            color: white;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar h1 {
+            color: red;
+            font-size: 24px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .sidebar ul li:hover {
+            color: red;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .domains-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+        .domain-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 400px;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .domain-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .domain-card.green {
+            background: green;
+        }
+        .domain-card.red {
+            background: red;
+        }
+        .domain-card a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: black;
+            padding: 60px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            width: 400px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+        }
+        .popup button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>ECLIPSE V2</h1>
+        <ul>
+            <li>Dashboard</li>
+            <li onclick="showPopup('controllerPopup')">Controller</li>
+            <li onclick="showPopup('hyperlinkPopup')">Hyperlink</li>
+            <li onclick="showPopup('settingsPopup')">Settings</li>
+            <li onclick="showPopup('announcementsPopup')">Announcements</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>ECLIPSE V2</h2>
+        <button style="background:red; color:white; padding:10px; border:none; cursor:pointer;">Available Domains</button>
+        <div class="domains-container">
+            <div class="domain-card green"><a href="https://shorter.me/iP1aX" target="_blank">Main Site!</a></div>
+            <div class="domain-card red"><a href="https://roblox.tg/create/Eclipse/generator" target="_blank">WWW.Roblox.tg</a></div>
+            <div class="domain-card"><a href="https://roblox.ls/create/Eclipses/generator" target="_blank">https://roblox.ls</a></div>
+            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
+            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
+            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!L</a></div>
+            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
+            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
+        </div>
+    </div>
+
+    <!-- Popups -->
+    <div id="controllerPopup" class="popup">
+        <p>Controller settings will be available soon.</p>
+        <button onclick="closePopup('controllerPopup')">Close</button>
+    </div>
+    <div id="hyperlinkPopup" class="popup">
+        <p>Manage your hyperlinks here. Coming soon!</p>
+        <button onclick="closePopup('hyperlinkPopup')">Close</button>
+    </div>
+    <div id="settingsPopup" class="popup">
+        <p>Settings panel will be added shortly.</p>
+        <button onclick="closePopup('settingsPopup')">Close</button>
+    </div>
+    <div id="announcementsPopup" class="popup">
+        <p>Stay tuned for the latest updates and announcements!</p>
+        <button onclick="closePopup('announcementsPopup')">Close</button>
+    </div>
+
+    <script>
+        function showPopup(popupId) {
+            document.getElementById(popupId).style.display = "block";
+        }
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = "none";
+        }
+    </script>
+</body>
+</html>
