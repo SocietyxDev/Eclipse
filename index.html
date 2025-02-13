@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #000000, #073763);
+            background: linear-gradient(to right, #000000, #000000);
             color: white;
             display: flex;
         }
@@ -33,7 +33,7 @@
             padding: 10px;
             margin: 5px 0;
             cursor: pointer;
-            color: white;
+            color: darkred;
             border: 1px solid white;
             border-radius: 5px;
             text-align: center;
@@ -86,29 +86,28 @@
             display: block;
             padding: 10px;
         }
+
+        /* Pop-up styling */
         .popup {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: black;
-            padding: 60px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
-            color: white;
-            width: 400px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+            z-index: 1000;
         }
         .popup button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            border: none;
             background: red;
             color: white;
+            padding: 5px 10px;
+            border: none;
+            margin-top: 10px;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
         }
     </style>
 </head>
@@ -116,16 +115,16 @@
     <div class="sidebar">
         <h1>ECLIPSE V2</h1>
         <ul>
-            <li>Dashboard</li>
-            <li onclick="showPopup('controllerPopup')">Controller</li>
-            <li onclick="showPopup('hyperlinkPopup')">Hyperlink</li>
-            <li onclick="showPopup('settingsPopup')">Settings</li>
-            <li onclick="showPopup('announcementsPopup')">Announcements</li>
+            <li onclick="window.location.href='index.html'">Dashboard</li>
+            <li onclick="window.location.href='hyperlink.html'">Hyperlink</li>
+            <li onclick="showPopup()">Controller</li>
+            <li onclick="showPopup()">Settings</li>
+            <li onclick="showPopup()">Announcements</li>
         </ul>
     </div>
     <div class="content">
         <h2>ECLIPSE V2</h2>
-        <button style="background:red; color:white; padding:10px; border:none; cursor:pointer;">Available Domains</button>
+        <button style="background:darkred; color:whitesmoke; padding:10px; border:none; cursor:pointer;">Available Domains</button>
         <div class="domains-container">
             <div class="domain-card green"><a href="https://shorter.me/iP1aX" target="_blank">Main Site!</a></div>
             <div class="domain-card red"><a href="https://roblox.tg/create/Eclipse/generator" target="_blank">WWW.Roblox.tg</a></div>
@@ -138,30 +137,18 @@
         </div>
     </div>
 
-    <!-- Popups -->
-    <div id="controllerPopup" class="popup">
-        <p>Controller settings will be available soon.</p>
-        <button onclick="closePopup('controllerPopup')">Close</button>
-    </div>
-    <div id="hyperlinkPopup" class="popup">
-        <p>Manage your hyperlinks here. Coming soon!</p>
-        <button onclick="closePopup('hyperlinkPopup')">Close</button>
-    </div>
-    <div id="settingsPopup" class="popup">
-        <p>Settings panel will be added shortly.</p>
-        <button onclick="closePopup('settingsPopup')">Close</button>
-    </div>
-    <div id="announcementsPopup" class="popup">
-        <p>Stay tuned for the latest updates and announcements!</p>
-        <button onclick="closePopup('announcementsPopup')">Close</button>
+    <!-- Pop-up -->
+    <div id="popup" class="popup">
+        <p>🚀 Coming Soon! Please wait or stay updated.</p>
+        <button onclick="closePopup()">OK</button>
     </div>
 
     <script>
-        function showPopup(popupId) {
-            document.getElementById(popupId).style.display = "block";
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
         }
-        function closePopup(popupId) {
-            document.getElementById(popupId).style.display = "none";
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
         }
     </script>
 </body>
