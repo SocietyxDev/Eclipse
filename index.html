@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECLIPSE SITE</title>
+    <title>Dashboard-page</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #000000, #000000);
+            background: url('image.png') no-repeat center center fixed;
+            background-size: cover;
             color: white;
             display: flex;
         }
         .sidebar {
             width: 250px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             padding: 20px;
             display: flex;
             flex-direction: column;
+            border-right: 3px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s ease-in-out;
+        }
+        .sidebar:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
         }
         .sidebar h1 {
             color: red;
             font-size: 24px;
+            text-shadow: 0 0 10px red;
         }
         .sidebar ul {
             list-style: none;
@@ -33,81 +41,77 @@
             padding: 10px;
             margin: 5px 0;
             cursor: pointer;
-            color: darkred;
-            border: 1px solid white;
+            color: white;
+            border: 2px solid white;
             border-radius: 5px;
             text-align: center;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
         }
         .sidebar ul li:hover {
-            color: red;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px white;
+            transform: scale(1.1);
+            color: cyan;
         }
         .content {
             flex-grow: 1;
-            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 40px 20px 20px;
+            gap: 20px;
         }
-        .domains-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 40px;
+        .panel {
+            background: black;
             padding: 20px;
-            border: 2px solid white;
             border-radius: 10px;
-        }
-        .domain-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 10px;
-            border-radius: 5px;
             text-align: center;
-            width: 400px;
-            border: 1px solid white;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
+            width: 30%;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+            border: 3px solid rgba(255, 0, 0, 0.8);
+            transition: 0.3s ease-in-out;
         }
-        .domain-card:hover {
+        .panel:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 0, 1);
             transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.2);
         }
-        .domain-card.green {
+        .button {
             background: green;
-        }
-        .domain-card.red {
-            background: red;
-        }
-        .domain-card a {
-            text-decoration: none;
             color: white;
-            font-weight: bold;
-            display: block;
-            padding: 10px;
-        }
-
-        /* Pop-up styling */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            z-index: 1000;
-        }
-        .popup button {
-            background: red;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            margin-top: 10px;
+            padding: 10px 15px;
+            border: 2px solid white;
             cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+        .button:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            transform: scale(1.1);
+        }
+        .button.red {
+            background: red;
+        }
+        .leaderboard-item {
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15px cyan;
+            padding: 10px 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s ease-in-out;
+        }
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+        .leaderboard-item:hover {
+            text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -115,41 +119,37 @@
     <div class="sidebar">
         <h1>ECLIPSE V2</h1>
         <ul>
-            <li onclick="window.location.href='index.html'">Dashboard</li>
-            <li onclick="window.location.href='hyperlink.html'">Hyperlink</li>
-            <li onclick="showPopup()">Controller</li>
-            <li onclick="showPopup()">Settings</li>
-            <li onclick="showPopup()">Announcements</li>
+            <li onclick="location.href='controller.html'">Controller</li>
+            <li onclick="location.href='cookiestorage.html'">Cookie Storage</li>
+            <li onclick="location.href='hyperlink.html'">Hyperlink</li>
+            <li onclick="location.href='settings.html'">Settings</li>
+            <li onclick="location.href='bypasser.html'">Bypasser [EXCLUSIVE ⭐]</li>
         </ul>
     </div>
     <div class="content">
-        <h2>ECLIPSE V2</h2>
-        <button style="background:darkred; color:whitesmoke; padding:10px; border:none; cursor:pointer;">Available Domains</button>
-        <div class="domains-container">
-            <div class="domain-card green"><a href="https://shorter.me/iP1aX" target="_blank">Main Site!</a></div>
-            <div class="domain-card red"><a href="https://roblox.tg/create/Eclipse/generator" target="_blank">WWW.Roblox.tg</a></div>
-            <div class="domain-card"><a href="https://roblox.ls/create/Eclipses/generator" target="_blank">https://roblox.ls</a></div>
-            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
-            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
-            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!L</a></div>
-            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
-            <div class="domain-card"><a href="https://discord.gg/Eclipsebeams" target="_blank">Coming Soon!</a></div>
+        <div class="panel">
+            <h2>Available Domains</h2>
+            <a href="https://shorter.me/iP1aX" class="button" target="_blank">MAIN SITE!</a>
+            <a href="https://roblox.tg/create/Eclipse/generator" class="button" target="_blank">roblox.tg</a>
+            <a href="https://roblox.ls/create/Eclipses/generator" class="button red" target="_blank">WWW.ROBLOX.ls</a>
+        </div>
+        <div class="panel">
+            <h2>Live Hits [UTC +8]</h2>
+            <button class="button red">Live Visitors</button>
+        </div>
+        <div class="panel">
+            <h2>Leaderboards (GLOBAL)</h2>
+            <p class="leaderboard-item">1. shirozanew - 14342</p>
+            <p class="leaderboard-item">2. manito_exee - 8327</p>
+            <p class="leaderboard-item">3. virtvs9 - 7656</p>
+            <p class="leaderboard-item">4. xxdarkslayer - 7234</p>
+            <p class="leaderboard-item">5. faststrike22 - 6982</p>
+            <p class="leaderboard-item">6. nightwolf_x - 6345</p>
+            <p class="leaderboard-item">7. cyberglitcher - 5982</p>
+            <p class="leaderboard-item">8. phantomace - 5678</p>
+            <p class="leaderboard-item">9. spectroblast - 5234</p>
+            <p class="leaderboard-item">10. pixelhunter - 4987</p>
         </div>
     </div>
-
-    <!-- Pop-up -->
-    <div id="popup" class="popup">
-        <p>🚀 Coming Soon! Please wait or stay updated.</p>
-        <button onclick="closePopup()">OK</button>
-    </div>
-
-    <script>
-        function showPopup() {
-            document.getElementById("popup").style.display = "block";
-        }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
 </body>
 </html>
